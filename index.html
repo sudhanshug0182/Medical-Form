@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Medical Information Form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Medical Information Form</h1>
+    <div class="form-container">
+        <form action="index.php" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" max="200" placeholder="Enter your age" required>
+            </div>
+
+            <div class="form-group" id="gender">
+                <label for="gender">Gender:</label>
+                <div class="option">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Male</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </div>
+
+                <div class="option">
+                    <input type="radio" id="others" name="gender" value="other">
+                    <label for="others">Other</label>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input type="number" id="ph" name="phone" min="1000000000" max="9999999999" placeholder="Enter your phone number">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email address">
+            </div>
+
+            
+            <div class="form-group">
+                <label>Insurance Information:</label>
+                <div class="insurance-info">
+                    <select id="insurance-provider" name="blood">
+                        <option value="" disabled selected style="color: grey;">Select your insurance provider</option>
+                        <option value="pnbMedlife">pnb Medlife</option>
+                        <option value="Suraksha">Suraksha</option>
+                        <option value="tataAIG">Tata AIG</option>
+                        <option value="SwathyaSathi">SwathyaSathi</option>
+                        <option value="ABHA">ABHA</option>
+                        <option value="sbiMaxLife">SBI MaxLife</option>
+                    </select>
+                    <input type="number" id="policy-no" name="policy-no" min="1000000" max="9999999" placeholder="Enter your policy number">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label for="wgt">Weight:</label>
+                <input type="number" id="wgt" name="weight" min="1" max="1000" placeholder="Enter your weight">
+            </div>
+
+            <!-- <div class="form-group">
+                <label for="blood">Blood Group:</label>
+                <input type="text" id="blood" name="blood" placeholder="Enter your blood group" maxlength="2">
+            </div> -->
+
+            <div class="form-group">
+                <label for="blood">Blood Group:</label>
+                <select id="blood" name="blood">
+                    <option value="" disabled selected style="color: grey;">Select your blood group</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="med-condition">
+                <label>Medical Condition:</label>
+                
+                <div class="option">
+                    <input type="checkbox" id="disease" name="medical-condition" value="D-A-H">
+                    <label for="disease">Diabetes/Asthma/Heart disease</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="alcohol" name="social_history" value="Alcohol">
+                    <label for="alcohol">Surgery</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="drug" name="social_history" value="drug">
+                    <label for="drug">Allergies</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="exercise" name="social_history" value="exercise">
+                    <label for="exercise">Medication </label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="other-1" name="social_history" value="Other">
+                    <label for="other-1">Other</label>
+                </div>
+                <div id="other-input-container-1" style="display: none;">
+                    <input type="text" id="other-text" name="social_history_other" placeholder="Specify other...">
+                </div>
+            </div>
+
+            <div class="form-group" id="addiction">
+                <label>Any kind of addiction:</label>
+                
+                <div class="option">
+                    <input type="checkbox" id="smoking" name="addiction" value="Smoking">
+                    <label for="smoking">Smoking</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="alcohol" name="addiction" value="Alcohol">
+                    <label for="alcohol">Alcohol</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="drug" name="addiction" value="drug">
+                    <label for="drug">Drug Use</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="exercise" name="addiction" value="exercise">
+                    <label for="exercise">Exercise habit</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="other-2" name="addiction" value="Other">
+                    <label for="other-2">Other</label>
+                </div>
+                <div id="other-input-container-2" style="display: none;">
+                    <input type="text" id="other-text" name="addiction-other" placeholder="Specify other...">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="comments">Add your current health concern:</label>
+                <textarea id="comments" name="comments" rows="10" cols="78" maxlength="500" placeholder="Enter your health concern here..." style="resize: none;"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="hltRprt">Upload Health Report:</label>
+                <input type="file" id="hltRprt" name="healthRprt" accept="application/pdf" required>
+            </div>
+
+            <div class="submit-btn">
+                <input type="submit" value="SUBMIT">
+            </div>
+        </form>
+    </div>
+
+
+<script>
+    let checkBtn_1 = document.getElementById('other-1');
+    let checkBtn_2 = document.getElementById('other-2');
+    let addInput_1 = document.getElementById('other-input-container-1');
+    let addInput_2 = document.getElementById('other-input-container-2');
+    checkBtn_1.addEventListener('change', function() {
+    if (this.checked) {
+        addInput_1.style.display = 'block';
+    } else {
+        addInput_1.style.display = 'none';
+    }
+    });
+    checkBtn_2.addEventListener('change', function() {
+    if (this.checked) {
+        addInput_2.style.display = 'block';
+    } else {
+        addInput_2.style.display = 'none';
+    }
+    });
+</script>
+
+</body>
+
+</html>
