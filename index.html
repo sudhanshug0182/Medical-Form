@@ -2,14 +2,16 @@
 <html>
 
 <head>
-    <title>Medical Information Form</title>
+    <title>Medical Form</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <h1>Medical Information Form</h1>
+    <h1>Medical Form</h1>
     <div class="form-container">
-        <form action="index.php" method="POST" enctype="multipart/form-data">
+
+        <form action="connect.php" method="POST" enctype="multipart/form-data">
+
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -23,17 +25,17 @@
             <div class="form-group" id="gender">
                 <label for="gender">Gender:</label>
                 <div class="option">
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="m">
                     <label for="male">Male</label>
                 </div>
 
                 <div class="option">
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="f">
                     <label for="female">Female</label>
                 </div>
 
                 <div class="option">
-                    <input type="radio" id="others" name="gender" value="other">
+                    <input type="radio" id="others" name="gender" value="o">
                     <label for="others">Other</label>
                 </div>
             </div>
@@ -41,7 +43,7 @@
 
             <div class="form-group">
                 <label for="phone">Phone:</label>
-                <input type="number" id="ph" name="phone" min="1000000000" max="9999999999" placeholder="Enter your phone number">
+                <input type="number" id="phone" name="phone" maxlength="10" placeholder="Enter your phone number">
             </div>
 
             <div class="form-group">
@@ -49,37 +51,15 @@
                 <input type="email" id="email" name="email" placeholder="Enter your email address">
             </div>
 
-            
-            <div class="form-group">
-                <label>Insurance Information:</label>
-                <div class="insurance-info">
-                    <select id="insurance-provider" name="blood">
-                        <option value="" disabled selected style="color: grey;">Select your insurance provider</option>
-                        <option value="pnbMedlife">pnb Medlife</option>
-                        <option value="Suraksha">Suraksha</option>
-                        <option value="tataAIG">Tata AIG</option>
-                        <option value="SwathyaSathi">SwathyaSathi</option>
-                        <option value="ABHA">ABHA</option>
-                        <option value="sbiMaxLife">SBI MaxLife</option>
-                    </select>
-                    <input type="number" id="policy-no" name="policy-no" min="1000000" max="9999999" placeholder="Enter your policy number">
-                </div>
-            </div>
-
 
             <div class="form-group">
-                <label for="wgt">Weight:</label>
+                <label for="wgt">Weight (in KG):</label>
                 <input type="number" id="wgt" name="weight" min="1" max="1000" placeholder="Enter your weight">
             </div>
 
-            <!-- <div class="form-group">
-                <label for="blood">Blood Group:</label>
-                <input type="text" id="blood" name="blood" placeholder="Enter your blood group" maxlength="2">
-            </div> -->
-
             <div class="form-group">
-                <label for="blood">Blood Group:</label>
-                <select id="blood" name="blood">
+                <label for="bloodgrp">Blood Group:</label>
+                <select id="bloodgrp" name="bloodgrp">
                     <option value="" disabled selected style="color: grey;">Select your blood group</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
@@ -92,31 +72,47 @@
                 </select>
             </div>
 
+            <!-- <div class="form-group">
+                <label for="insurance-provider">Insurance Information:</label>
+                <div class="insurance-info">
+                    <select id="insurance-provider" name="insurance">
+                        <option value="" disabled selected style="color: grey;">Select your insurance provider</option>
+                        <option value="pnbMedlife">pnb Medlife</option>
+                        <option value="Suraksha">Suraksha</option>
+                        <option value="tataAIG">Tata AIG</option>
+                        <option value="SwathyaSathi">SwathyaSathi</option>
+                        <option value="ABHA">ABHA</option>
+                        <option value="sbiMaxLife">SBI MaxLife</option>
+                    </select>
+                    <input type="number" id="policy_no" name="policy_no" min="1000000" max="9999999" placeholder="Enter your policy number">
+                </div>
+            </div>
+
             <div class="form-group" id="med-condition">
                 <label>Medical Condition:</label>
                 
                 <div class="option">
-                    <input type="checkbox" id="disease" name="medical-condition" value="D-A-H">
+                    <input type="checkbox" id="disease" name="med-condition" value="D-A-H">
                     <label for="disease">Diabetes/Asthma/Heart disease</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" id="alcohol" name="social_history" value="Alcohol">
-                    <label for="alcohol">Surgery</label>
+                    <input type="checkbox" id="surgery" name="med-condition" value="surgery">
+                    <label for="surgery">Surgery</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" id="drug" name="social_history" value="drug">
-                    <label for="drug">Allergies</label>
+                    <input type="checkbox" id="allergies" name="med-condition" value="allergies">
+                    <label for="allergies">Allergies</label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" id="exercise" name="social_history" value="exercise">
-                    <label for="exercise">Medication </label>
+                    <input type="checkbox" id="medication" name="med-condition" value="medication">
+                    <label for="medication">Medication </label>
                 </div>
                 <div class="option">
-                    <input type="checkbox" id="other-1" name="social_history" value="Other">
+                    <input type="checkbox" id="other-1" name="med-condition" value="Other">
                     <label for="other-1">Other</label>
                 </div>
                 <div id="other-input-container-1" style="display: none;">
-                    <input type="text" id="other-text" name="social_history_other" placeholder="Specify other...">
+                    <input type="text" id="other-text" name="other_med-condition" placeholder="Specify other...">
                 </div>
             </div>
 
@@ -144,23 +140,24 @@
                     <label for="other-2">Other</label>
                 </div>
                 <div id="other-input-container-2" style="display: none;">
-                    <input type="text" id="other-text" name="addiction-other" placeholder="Specify other...">
+                    <input type="text" id="other-text" name="other_addiction" placeholder="Specify other...">
                 </div>
-            </div>
+            </div> -->
             
             <div class="form-group">
                 <label for="comments">Add your current health concern:</label>
-                <textarea id="comments" name="comments" rows="10" cols="78" maxlength="500" placeholder="Enter your health concern here..." style="resize: none;"></textarea>
+                <textarea id="comments" name="concern" rows="10" cols="78" maxlength="500" placeholder="Enter your health concern here..." style="resize: none;"></textarea>
             </div>
             
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label for="hltRprt">Upload Health Report:</label>
                 <input type="file" id="hltRprt" name="healthRprt" accept="application/pdf" required>
-            </div>
+            </div> -->
 
             <div class="submit-btn">
                 <input type="submit" value="SUBMIT">
             </div>
+
         </form>
     </div>
 
